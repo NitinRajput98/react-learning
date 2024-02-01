@@ -1,3 +1,12 @@
-#header {
+#heading {
   color: red;
+}
+#container {
+  color: blue;
+}
+#sidebar {
+  color: green;
+}
+#defination {
+  color: darkcyan;
 }
