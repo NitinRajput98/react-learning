@@ -84,3 +84,23 @@
   animation: shimmer 1s infinite linear;
   border: 2px solid white;
 }
+
+.login-btn {
+  width: 100px;
+  height: 65px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.filter {
+  display: flex;
+}
+
+.search {
+  margin: 10px;
+}
+
+.search-btn {
+  margin: 0px 10px;
+  cursor: pointer;
+}
