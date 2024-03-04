@@ -33,7 +33,7 @@
   margin: 5px;
   padding: 5px;
   width: 200px;
-  /* height: 350px; */
+  height: 350px;
 }
 
 .res-card:hover {
@@ -103,4 +103,16 @@
 .search-btn {
   margin: 0px 10px;
   cursor: pointer;
+}
+
+.res-card-link {
+  text-decoration: none;
+  color: black;
+}
+.link a {
+  text-decoration: none;
+  color: black;
+}
+.link a:hover {
+  color: #fc8019;
 }

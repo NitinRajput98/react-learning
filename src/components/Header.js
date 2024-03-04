@@ -7,20 +7,22 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={Logo_URL} />
+        <Link to="/">
+          <img className="logo" src={Logo_URL} />
+        </Link>
       </div>
       <div className="nav-items">
         <ul>
-          <li>
+          <li className="link">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="link">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="link">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className="link">Cart</li>
           <button
             className="login-btn"
             onClick={() => {

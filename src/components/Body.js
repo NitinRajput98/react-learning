@@ -68,6 +68,7 @@ const Body = () => {
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
+              className="res-card-link"
               to={`/restaurants/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
