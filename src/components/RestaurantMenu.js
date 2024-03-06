@@ -6,6 +6,7 @@ import { Menu_URL } from "../utils/constants";
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
+  const [filterButtonText, setFilterButtonText] = useState("Filter Veg");
   const { resId } = useParams();
 
   const filterData = () => {
@@ -14,6 +15,15 @@ const RestaurantMenu = () => {
         (item) => item?.card?.info?.isVeg === 1
       );
     setFilteredData(result);
+    setFilterButtonText("Reset Menu");
+  };
+
+  const resetMenu = () => {
+    setFilteredData(
+      resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+        ?.card?.card?.itemCards
+    );
+    setFilterButtonText("Filter Veg");
   };
 
   const fetchMenu = async () => {
@@ -42,18 +52,10 @@ const RestaurantMenu = () => {
     <div className="menu">
       <div className="button-parent">
         <div className="veg-filter">
-          <button onClick={filterData}>Filter Veg</button>
-        </div>
-        <div className="whole-menu">
           <button
-            onClick={() => {
-              setFilteredData(
-                resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR
-                  ?.cards[2]?.card?.card?.itemCards
-              );
-            }}
+            onClick={filterButtonText === "Filter Veg" ? filterData : resetMenu}
           >
-            Reset Menu
+            {filterButtonText}
           </button>
         </div>
       </div>
