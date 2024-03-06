@@ -116,3 +116,10 @@
 .link a:hover {
   color: #fc8019;
 }
+
+.button-parent button {
+  margin-top: 10px;
+}
+.button-parent {
+  display: flex;
+}

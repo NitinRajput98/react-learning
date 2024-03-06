@@ -5,12 +5,25 @@ import { Menu_URL } from "../utils/constants";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
+  const [filteredData, setFilteredData] = useState(null);
   const { resId } = useParams();
+
+  const filterData = () => {
+    const result =
+      resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.filter(
+        (item) => item?.card?.info?.isVeg === 1
+      );
+    setFilteredData(result);
+  };
 
   const fetchMenu = async () => {
     const data = await fetch(Menu_URL + resId);
     const json = await data.json();
     setResInfo(json);
+    setFilteredData(
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+        ?.card?.itemCards
+    );
   };
   useEffect(() => {
     fetchMenu();
@@ -24,18 +37,33 @@ const RestaurantMenu = () => {
     feeDetails: { message },
     avgRating,
   } = resInfo?.data?.cards[0]?.card?.card?.info;
-  const { itemCards } =
-    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+
   return (
     <div className="menu">
+      <div className="button-parent">
+        <div className="veg-filter">
+          <button onClick={filterData}>Filter Veg</button>
+        </div>
+        <div className="whole-menu">
+          <button
+            onClick={() => {
+              setFilteredData(
+                resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR
+                  ?.cards[2]?.card?.card?.itemCards
+              );
+            }}
+          >
+            Reset Menu
+          </button>
+        </div>
+      </div>
       <h1>{name}</h1>
       <h2>{cuisines?.join(", ")}</h2>
       <h3>{areaName}</h3>
       <h2>{message}</h2>
       <h2>Rating: {avgRating}</h2>
       <ul>
-        {itemCards?.map((item) => {
+        {filteredData?.map((item) => {
           const { id, name } = item?.card?.info;
           return (
             <li key={id}>
