@@ -5,43 +5,42 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      count2: 1,
+      json: {
+        avatar_url: "https://www.w3schools.com/",
+        name: "",
+        location: "",
+      },
     };
-    console.log(this.props.name + "Child Contructor");
+    console.log("Child Contructor");
   }
-  componentDidMount() {
-    console.log(this.props.name + "Child Component Did Mount");
+  async componentDidMount() {
+    console.log("Child componenetdidmount called");
+    const data = await fetch("https://api.github.com/users/NitinRajput98");
+    const json = await data.json();
+    console.log(json);
     this.setState({
-      count: this.state.count + 1,
-      count2: this.state.count2 + 1,
+      json,
     });
+  }
+  componentWillUnmount() {
+    console.log("componentwillunmoutn!!!!!");
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidupdate");
   }
 
   render() {
-    const { name, location } = this.props;
-    const { count, count2 } = this.state;
-    console.log(this.props.name + "Child Render");
+    console.log("Child Render");
+    console.log("State Variables", this.state);
     return (
       <div>
         <div className="user-card">
-          <h1>Count: {count}</h1>
-          <button
-            onClick={() => {
-              this.setState({
-                count: this.state.count + 1,
-                count2: this.state.count2 + 1,
-              });
-            }}
-          >
-            Increment Count
-          </button>
-          <h2>Count2: {count2}</h2>
-          <h3>Name:{name}</h3>
-          <h3>Location:{location}</h3>
+          <img src={this.state.json.avatar_url} />
+          <h3>Name:{this.state.json.name}</h3>
+          <h3>Location:{this.state.json.location}</h3>
           <h3>Contact: Class Component</h3>
         </div>
-        {/* <Contact /> */}
       </div>
     );
   }

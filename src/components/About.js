@@ -18,7 +18,7 @@ class About extends Component {
       <div>
         <h1>About Page</h1>
         {/* <User name={"Nitin Rajput Functional"} /> */}
-        <UserClass name={"First"} location={"New Delhi Class"} />
+        <UserClass />
         {/* <UserClass name={"Second"} location={"New Delhi Class"} /> */}
       </div>
     );
