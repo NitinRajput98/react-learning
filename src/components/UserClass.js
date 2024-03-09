@@ -11,28 +11,28 @@ class UserClass extends React.Component {
         location: "",
       },
     };
-    console.log("Child Contructor");
+    // console.log("Child Contructor");
   }
   async componentDidMount() {
-    console.log("Child componenetdidmount called");
+    // console.log("Child componenetdidmount called");
     const data = await fetch("https://api.github.com/users/NitinRajput98");
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     this.setState({
       json,
     });
   }
   componentWillUnmount() {
-    console.log("componentwillunmoutn!!!!!");
+    // console.log("componentwillunmoutn!!!!!");
   }
 
   componentDidUpdate() {
-    console.log("componentDidupdate");
+    // console.log("componentDidupdate");
   }
 
   render() {
-    console.log("Child Render");
-    console.log("State Variables", this.state);
+    // console.log("Child Render");
+    // console.log("State Variables", this.state);
     return (
       <div>
         <div className="user-card">
