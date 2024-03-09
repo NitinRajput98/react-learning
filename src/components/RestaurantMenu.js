@@ -1,43 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { Menu_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-  const [filteredData, setFilteredData] = useState(null);
   const [filterButtonText, setFilterButtonText] = useState("Filter Veg");
   const { resId } = useParams();
-
+  const resInfo = useRestaurantMenu(resId);
+  let filteredData = resInfo
+    ? resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+        ?.card?.card?.itemCards
+    : "null";
   const filterData = () => {
     const result =
       resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.filter(
         (item) => item?.card?.info?.isVeg === 1
       );
-    setFilteredData(result);
+
+    filteredData = result;
     setFilterButtonText("Reset Menu");
   };
 
   const resetMenu = () => {
-    setFilteredData(
+    filteredData =
       resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-        ?.card?.card?.itemCards
-    );
+        ?.card?.card?.itemCards;
     setFilterButtonText("Filter Veg");
   };
 
-  const fetchMenu = async () => {
-    const data = await fetch(Menu_URL + resId);
-    const json = await data.json();
-    setResInfo(json);
-    setFilteredData(
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-        ?.card?.itemCards
-    );
-  };
-  useEffect(() => {
-    fetchMenu();
-  }, []);
   if (!resInfo) return <Shimmer />;
   //Destructuring Api data
   const {
