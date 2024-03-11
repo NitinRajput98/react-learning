@@ -34,15 +34,15 @@ const Body = () => {
       </div>
     );
 
-  return listOfRestaturants.length === 0 ? (
+  return listOfRestaturants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="border-2 shadow-lg m-1">
+      <div className="">
+        <div className="m-2 justify-center flex">
           <input
             type="text"
-            className="search-box"
+            className="border w-80 rounded-md"
             placeholder="Enter text to search"
             value={searchText}
             onChange={(e) => {
@@ -50,7 +50,7 @@ const Body = () => {
             }}
           />
           <button
-            className="search-btn"
+            className="border-2 ml-2 hover:text-orange-600 rounded-lg w-24"
             onClick={() => {
               const filterList = listOfRestaturants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -60,24 +60,24 @@ const Body = () => {
           >
             Search
           </button>
+          <button
+            className="border-2 mx-32 w-52 hover:text-orange-600 rounded-lg"
+            onClick={() => {
+              const filteredData = filteredRestaurants.filter(
+                (rest) => rest.info.avgRating > 4
+              );
+              setFilteredRestaurants(filteredData);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredData = filteredRestaurants.filter(
-              (rest) => rest.info.avgRating > 4
-            );
-            setFilteredRestaurants(filteredData);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
       </div>
-      <div className="res-container">
-        {filteredRestaurants.map((restaurant) => {
+      <div className="flex flex-wrap justify-center">
+        {filteredRestaurants?.map((restaurant) => {
           return (
             <Link
-              className="res-card-link"
+              className="m-4 hover:scale-90 min-h-80 w-72 hover:bg-[#f0f0f0] border-transparent rounded-md shadow-lg"
               to={`/restaurants/${restaurant.info.id}`}
               key={restaurant.info.id}
             >

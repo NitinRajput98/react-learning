@@ -7,34 +7,38 @@ const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="flex justify-between border-2 shadow-lg m-1">
+      <div className="w-21">
         <Link to="/">
-          <img className="logo" src={Logo_URL} />
+          <img className="w-24 hover:scale-90" src={Logo_URL} />
         </Link>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status:{onlineStatus ? "🟢" : "🔴"}</li>
-          <li className="link">
+      <div className="m-4 self-center">
+        <ul className="flex">
+          <li className="m-4 hover:text-orange-600 text-xl font-medium">
+            Online Status:{onlineStatus ? "🟢" : "🔴"}
+          </li>
+          <li className="m-4 hover:text-orange-600 text-xl font-medium">
             <Link to="/">Home</Link>
           </li>
-          <li className="link">
+          <li className="m-4 hover:text-orange-600 text-xl font-medium">
             <Link to="/about">About Us</Link>
           </li>
-          <li className="link">
+          <li className="m-4 hover:text-orange-600 text-xl font-medium">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="link">Cart</li>
+          <li className="m-4 hover:text-orange-600 text-xl font-medium">
+            Cart
+          </li>
           <button
-            className="login-btn"
+            className="m-4 hover:text-orange-600 text-xl font-medium"
             onClick={() => {
               loginBtn === "Login"
                 ? setLoginBtn("Logout")
                 : setLoginBtn("Login");
             }}
           >
-            {loginBtn}
+            {loginBtn}&rarr;
           </button>
         </ul>
       </div>
