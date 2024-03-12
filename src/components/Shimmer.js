@@ -4,18 +4,35 @@ const Shimmer = () => {
       <div className="shimmer-filter">
         <button className="shimmer-filter-btn"></button>
       </div>
-      <div className="shimmer-container">
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
+      <div className="m-4 hover:scale-90 min-h-80 w-72 hover:bg-[#f0f0f0] border-transparent rounded-md shadow-lg">
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
+        <div className="animate-pulse w-20 h-20"></div>
       </div>
     </div>
   );
+  // return (
+  //   <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+  //     <div class="animate-pulse flex space-x-4">
+  //       <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+  //       <div class="flex-1 space-y-6 py-1">
+  //         <div class="h-2 bg-slate-700 rounded"></div>
+  //         <div class="space-y-3">
+  //           <div class="grid grid-cols-3 gap-4">
+  //             <div class="h-2 bg-slate-700 rounded col-span-2"></div>
+  //             <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+  //           </div>
+  //           <div class="h-2 bg-slate-700 rounded"></div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default Shimmer;

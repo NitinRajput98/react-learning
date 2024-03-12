@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [filterButtonText, setFilterButtonText] = useState("Filter Veg");
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
+  console.log("ResInfo Custom Hook", resInfo);
+  const [filterButtonText, setFilterButtonText] = useState("Filter Veg");
+
   let filteredData = resInfo
     ? resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
         ?.card?.card?.itemCards
@@ -18,6 +20,7 @@ const RestaurantMenu = () => {
       );
 
     filteredData = result;
+    console.log("filteredData", filteredData);
     setFilterButtonText("Reset Menu");
   };
 
@@ -39,33 +42,36 @@ const RestaurantMenu = () => {
   } = resInfo?.data?.cards[0]?.card?.card?.info;
 
   return (
-    <div className="menu">
-      <div className="button-parent">
-        <div className="veg-filter">
-          <button
-            onClick={filterButtonText === "Filter Veg" ? filterData : resetMenu}
-          >
-            {filterButtonText}
-          </button>
-        </div>
+    <div className="border-2 shadow-lg m-1">
+      <div className="border-2 border-transparent m-3 flex justify-center">
+        <button
+          className="border-2 ml-2 hover:text-orange-600 rounded-lg w-24"
+          onClick={filterButtonText === "Filter Veg" ? filterData : resetMenu}
+        >
+          {filterButtonText}
+        </button>
       </div>
-      <h1>{name}</h1>
-      <h2>{cuisines?.join(", ")}</h2>
-      <h3>{areaName}</h3>
-      <h2>{message}</h2>
-      <h2>Rating: {avgRating}</h2>
-      <ul>
-        {filteredData?.map((item) => {
-          const { id, name } = item?.card?.info;
-          return (
-            <li key={id}>
-              {name} - ₹
-              {item?.card?.info?.price / 100 ||
-                item?.card?.info?.defaultPrice / 100}
-            </li>
-          );
-        })}
-      </ul>
+      <div className="border-2 m-3">
+        <h1 className="font-bold">{name}</h1>
+        <h2 className="text-[#7e808c]">{cuisines?.join(", ")}</h2>
+        <h3 className="text-[#7e808c]">{areaName}</h3>
+        <h2 className="text-[#7e808c]">{message}</h2>
+        <h2 className="text-[#7e808c]">Rating: ✨{avgRating}</h2>
+      </div>
+      <div className="border-2 m-3">
+        <ul>
+          {filteredData?.map((item) => {
+            const { id, name } = item?.card?.info;
+            return (
+              <li className="font-bold" key={id}>
+                {name} - ₹
+                {item?.card?.info?.price / 100 ||
+                  item?.card?.info?.defaultPrice / 100}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

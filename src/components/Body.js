@@ -3,12 +3,14 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import HigherOrderComponent from "./HigherOrderComponent";
 
 const Body = () => {
   const [listOfRestaturants, setListOfRestaturants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const onlineStatus = useOnlineStatus();
+  const NewlyOnboardedComponent = HigherOrderComponent(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -81,8 +83,11 @@ const Body = () => {
               to={`/restaurants/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
-              {" "}
-              <RestaurantCard restData={restaurant} />
+              {restaurant.info.isNewlyOnboarded ? (
+                <NewlyOnboardedComponent restData={restaurant} />
+              ) : (
+                <RestaurantCard restData={restaurant} />
+              )}
             </Link>
           );
         })}
