@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import HigherOrderComponent from "./HigherOrderComponent";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaturants, setListOfRestaturants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   const onlineStatus = useOnlineStatus();
   const NewlyOnboardedComponent = HigherOrderComponent(RestaurantCard);
 
@@ -73,6 +76,15 @@ const Body = () => {
           >
             Top Rated Restaurant
           </button>
+          <input
+            // type="text"
+            className="border w-80 rounded-md"
+            placeholder="Enter text to search"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="flex flex-wrap justify-center">
