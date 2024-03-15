@@ -1,6 +1,12 @@
+import { addItem } from "../utils/cartSlice";
 import { Image_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
 
 const ItemList = ({ itemData }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div className="border-b-2 bg-gray-200 my-2 shadow-md flex justify-between">
       <div className="w-9/12">
@@ -15,7 +21,10 @@ const ItemList = ({ itemData }) => {
       </div>
       <div className="w-3/12">
         <div className="absolute mt-16 ml-2">
-          <button className="border h-9 w-24 hover:shadow-2xl bg-white rounded-lg">
+          <button
+            className="border h-9 w-24 hover:shadow-2xl bg-white rounded-lg"
+            onClick={() => handleAddItem(itemData)}
+          >
             Add +
           </button>
         </div>
