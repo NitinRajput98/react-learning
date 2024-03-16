@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Contact from "./Contact";
 import { useGetUserByNameQuery } from "../utils/github";
 
 const UserClass = (props) => {
@@ -9,7 +8,7 @@ const UserClass = (props) => {
   //   location: "",
   // };
 
-  const { data, error, isLoading } = useGetUserByNameQuery("");
+  const { data, error, isLoading } = useGetUserByNameQuery("NitinRajput98");
 
   // const getGithubImg = async () => {
   //   const data = await fetch("https://api.github.com/users/NitinRajput98");
