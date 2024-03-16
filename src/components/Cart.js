@@ -17,6 +17,7 @@ const Cart = () => {
         Clear Cart
       </button>
       <div className="w-6/12 margin-auto">
+        {cartItems.length === 0 && <p>Cart is empty.Pls add some items!!</p>}
         {cartItems.length > 0 &&
           cartItems.map((item) => (
             <ItemList key={item.id} itemData={item}>
