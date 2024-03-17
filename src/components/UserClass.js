@@ -2,38 +2,47 @@ import React, { useEffect, useState } from "react";
 import { useGetUserByNameQuery } from "../utils/github";
 
 const UserClass = (props) => {
+  const [json, setJSON] = useState(null);
   // const json = {
   //   avatar_url: "https://www.w3schools.com/",
   //   name: "",
   //   location: "",
   // };
 
-  const { data, error, isLoading } = useGetUserByNameQuery("NitinRajput98");
+  // const { data, error, isLoading } = useGetUserByNameQuery("NitinRajput98");
 
-  // const getGithubImg = async () => {
-  //   const data = await fetch("https://api.github.com/users/NitinRajput98");
-  //   const json = await data.json();
-  //   setJSON(json);
-  // };
+  const getGithubImg = async () => {
+    const data = await fetch("https://api.github.com/users/NitinRajput98");
+    const json = await data.json();
+    setJSON(json);
+  };
 
-  // useEffect(() => {
-  //   getGithubImg();
-  // }, []);
+  useEffect(() => {
+    getGithubImg();
+  }, []);
   return (
-    <div>
-      {error ? (
-        <>Oh no, there was an error</>
-      ) : isLoading ? (
-        <>Loading...</>
-      ) : (
-        <div className="user-card">
-          <img src={data.avatar_url} />
-          <h3>Name:{data.name}</h3>
-          <h3>Location:{data.location}</h3>
-          <h3>Contact: Functional Component</h3>
-        </div>
-      )}
-    </div>
+    // <div>
+    //   {error ? (
+    //     <>Oh no, there was an error</>
+    //   ) : isLoading ? (
+    //     <>Loading...</>
+    //   ) : (
+    //     <div className="user-card">
+    //       <img src={data.avatar_url} />
+    //       <h3>Name:{data.name}</h3>
+    //       <h3>Location:{data.location}</h3>
+    //       <h3>Contact: Functional Component</h3>
+    //     </div>
+    //   )}
+    // </div>
+    json && (
+      <div className="user-card">
+        <img src={json.avatar_url} />
+        <h3>Name:{json.name}</h3>
+        <h3>Location:{json.location}</h3>
+        <h3>Contact: Functional Component</h3>
+      </div>
+    )
   );
 };
 
