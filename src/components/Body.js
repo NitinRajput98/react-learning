@@ -46,6 +46,7 @@ const Body = () => {
       <div className="">
         <div className="m-2 justify-center flex">
           <input
+            data-testid="searchBox"
             type="text"
             className="border w-80 rounded-md"
             placeholder="Enter text to search"
@@ -55,6 +56,7 @@ const Body = () => {
             }}
           />
           <button
+            data-testid="searchBtn"
             className="border-2 ml-2 hover:text-orange-600 rounded-lg w-24"
             onClick={() => {
               const filterList = listOfRestaturants.filter((res) =>
@@ -66,6 +68,7 @@ const Body = () => {
             Search
           </button>
           <button
+            data-testid="topRatedButton"
             className="border-2 mx-32 w-52 hover:text-orange-600 rounded-lg"
             onClick={() => {
               const filteredData = filteredRestaurants.filter(
