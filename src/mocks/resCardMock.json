@@ -1,0 +1,66 @@
+{
+  "info": {
+    "id": "38925",
+    "name": "Domino's Pizza",
+    "cloudinaryImageId": "mdl4tnyc8wbvysqxzhnq",
+    "locality": "Netaji Subhash Marg",
+    "areaName": "Daryaganj",
+    "costForTwo": "₹400 for two",
+    "cuisines": ["Pizzas", "Italian", "Pastas", "Desserts"],
+    "avgRating": 4.3,
+    "parentId": "2456",
+    "avgRatingString": "4.3",
+    "totalRatingsString": "10K+",
+    "sla": {
+      "deliveryTime": 25,
+      "serviceability": "SERVICEABLE",
+      "slaString": "25 mins",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2024-03-18 01:55:00",
+      "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {},
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "₹150 OFF",
+      "subHeader": "ABOVE ₹299",
+      "discountTag": "FLAT DEAL"
+    },
+    "orderabilityCommunication": {
+      "title": {},
+      "subTitle": {},
+      "message": {},
+      "customIcon": {}
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+  },
+  "analytics": {
+    "context": "seo-data-3c96b0ed-72fc-4f4c-b462-ab08deb622fd"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/restaurants/dominos-pizza-netaji-subhash-marg-daryaganj-delhi-38925",
+    "text": "RESTAURANT_MENU",
+    "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
