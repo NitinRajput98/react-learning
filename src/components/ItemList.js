@@ -8,7 +8,10 @@ const ItemList = ({ itemData }) => {
     dispatch(addItem(item));
   };
   return (
-    <div className="border-b-2 bg-gray-200 my-2 shadow-md flex justify-between">
+    <div
+      className="border-b-2 bg-gray-200 my-2 shadow-md flex justify-between"
+      data-testid="itemList"
+    >
       <div className="w-9/12">
         <span className="block font-bold">{itemData?.name}</span>
         <span className="block font-bold">
@@ -22,6 +25,7 @@ const ItemList = ({ itemData }) => {
       <div className="w-3/12">
         <div className="absolute mt-16 ml-2">
           <button
+            data-testid="addBtn"
             className="border h-9 w-24 hover:shadow-2xl bg-white rounded-lg"
             onClick={() => handleAddItem(itemData)}
           >

@@ -13,7 +13,11 @@ const Cart = () => {
   return (
     <div className="text-center self-center w-11/12">
       <h1>Cart Page</h1>
-      <button className="border border-black" onClick={handleClearCart}>
+      <button
+        className="border border-black"
+        data-testid="clearCartBtn"
+        onClick={handleClearCart}
+      >
         Clear Cart
       </button>
       <div className="w-6/12 margin-auto">

@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className="border-2 shadow-lg m-1">
+    <div className="border-2 shadow-lg m-1" data-testid="resMenu">
       <div className="border-2 border-transparent m-3 flex justify-center">
         <button className="border-2 ml-2 hover:text-orange-600 rounded-lg w-24">
           {filterButtonText}

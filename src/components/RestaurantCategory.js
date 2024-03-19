@@ -15,6 +15,7 @@ const RestaurantCategory = ({
   return (
     <div className="w-6/12 m-auto ">
       <div
+        data-testid="resCategory"
         className="flex justify-between my-4 border  shadow-lg h-10 cursor-pointer"
         onClick={handleClick}
       >
