@@ -81,6 +81,7 @@ const Body = () => {
           </button>
           <input
             // type="text"
+            data-testid="userNameInput"
             className="border w-80 rounded-md"
             placeholder="Enter text to search"
             value={loggedInUser}

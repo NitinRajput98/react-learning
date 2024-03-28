@@ -1,10 +1,13 @@
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Body from "../components/Body";
 import MOCK_DATA from "../mocks/bodyMock.json";
 import { act } from "react-dom/test-utils";
+// import Header from "../components/Header";
+// import appStore from "../utils/appStore";
+// import App from "../App";
 
 global.fetch = jest.fn(() => {
   return Promise.resolve({
@@ -51,3 +54,24 @@ test("On click of top rated rest res cards should be filtered", async () => {
   const filteredResCards = screen.getAllByTestId("resCard");
   expect(filteredResCards.length).toBe(6);
 });
+
+// test("Should render username in the header when input field in body is updated", async () => {
+//   await act(async () => {
+//     render(
+//       <Provider store={appStore}>
+//         <BrowserRouter>
+//           <App />
+//           <Body />
+//           <Header />
+//         </BrowserRouter>
+//       </Provider>
+//     );
+//   });
+
+//   const userNameInput = screen.getByTestId("userNameInput");
+//   expect(userNameInput).toBeInTheDocument();
+
+//   fireEvent.change(userNameInput, { target: { value: "Nitin Rajput" } });
+//   const userContext = screen.getAllByText("Nitin Rajput");
+//   expect(userContext.length).toBe(2);
+// });
